@@ -1,8 +1,18 @@
 import sys
 import os
 
-print("USAGE: python3 badchars.py <inputFileName> [foundBadChars]")
-print("Example: python3 badchars.py xyz 01040d")
+
+class bcolors:
+    BOLD = '\033[1m'
+    OKBLUE = '\033[94m'
+    FAIL = '\033[91m'
+    ENDC = '\033[0m'
+
+def fprint(a,style):
+    print(style + a + bcolors.ENDC)
+
+fprint("[*] USAGE: python3 badchars.py <inputFileName> [foundBadChars]",bcolors.BOLD)
+fprint("[*] Example: python3 badchars.py xyz 01040d\n",bcolors.BOLD)
 
 # read param - filename
 file_name = sys.argv[1]
@@ -26,10 +36,12 @@ expected_hex = [item for item in all_hex if item not in bad_chars]
 
 f = open(file_name, "r")
 chars = f.read().replace(" ","\n").split("\n")
+print("Here is your input ...")
+print(chars)
 
 for i in range(0,len(expected_hex)):
     if expected_hex[i] != chars[i]:
-        print(f"Expected char {expected_hex[i]} but found {chars[i]}")
+        fprint(f"\n[!] Expected char {expected_hex[i]} after char {expected_hex[i-1]} but found {chars[i]} instead!\n",bcolors.FAIL)
         sys.exit(0)
 
-print("All Good")
+fprint("[*] All Good!", bcolors.OKBLUE)
