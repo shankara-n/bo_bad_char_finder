@@ -26,7 +26,6 @@ expected_hex = [item for item in all_hex if item not in bad_chars]
 
 f = open(file_name, "r")
 chars = f.read().replace(" ","\n").split("\n")
-print(chars)
 
 for i in range(0,len(expected_hex)):
     if expected_hex[i] != chars[i]:
