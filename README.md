@@ -17,6 +17,7 @@ python3 badchars.py <inputFileName> [foundBadChars]
 ## Example with Immunity DBG
 1.  Ofcourse, start with triggering a overflow with all chars int the buffer
 2.  Copy the portion of the dump where the chars are (make sure you select the right starting point) (do a binary copy - select --> right click --> binary --> binary copy)
+
 ![Screenshot](copy_dump_screenshot.JPG)
 3.  Paste the contents into a file (you can name the file as chars)
 4.  Run "python3 badchars.py chars"
