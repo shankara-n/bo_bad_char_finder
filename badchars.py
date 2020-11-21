@@ -10,7 +10,7 @@ file_name = sys.argv[1]
 # read param - bad chars
 if len(sys.argv) == 3:
     bad_chars_str = sys.argv[2]
-    bad_chars = [bad_chars_str[i:i+2] for i in range(0, len(bad_chars_str), 2)]
+    bad_chars = [bad_chars_str[i:i+2].upper() for i in range(0, len(bad_chars_str), 2)]
 else:
     bad_chars = []
 
