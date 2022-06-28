@@ -31,9 +31,6 @@ all_hex = [hex(i)[2:].zfill(2).upper() for i in range(1,256)]
 expected_hex = [item for item in all_hex if item not in bad_chars]
 
 # convert input file to one value per line format
-# os.system(f'cat {file_name} |  tr " " "\n" > {file_name}.line')
-#f = open(f"{file_name}.line", "r")
-
 f = open(file_name, "r")
 chars = f.read().replace(" ","\n").split("\n")
 print("Here is your input ...")
